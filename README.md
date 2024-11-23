@@ -33,6 +33,11 @@ Through this step-by-step guide, you’ll gain practical experience in:
   - Step 3: Create a New User (Jane Doe)
   - Step 4: Add Jane Doe to the "Domain Admins" Group
   - Step 5: Log In as Jane Admin
+- Part III: Join Client-1 to the Domain
+  - Step 1: Log Into Client-1
+  - Step 2: Join Client-1 to the Domain
+  - Step 3: Verify Client-1 in ADUC
+  - Step 4: Move Client-1 to the _CLIENTS OU
 
 <h2>Installation Steps</h2>
 <h3>Part 1: Install Active Directory on DC-1</h3>
@@ -75,7 +80,7 @@ Through this step-by-step guide, you’ll gain practical experience in:
   - Username: mydomain.com\labuser
   - Password: Cyberlab123!
 
-<h3>Part II: Create a Domain Admin User</h3> TK
+<h3>Part II: Create a Domain Admin User</h3> 
 
 <h4>Step 1: Open Active Directory Users and Computers (ADUC)</h4>
 
@@ -83,44 +88,72 @@ Through this step-by-step guide, you’ll gain practical experience in:
 
 On DC-1, open Active Directory Users and Computers from the Start menu.
 
-<h3>Step 2: Set Client-1’s DNS Settings to DC-1’s Private IP</h3>
+<h3>Step 2: Create Organizational Units (OUs)</h3>
 
-<img src="https://i.imgur.com/MlCUQ6t.png" height="80%" width="80%" alt=""/>
+<img src="https://i.imgur.com/woWbf1N.png" height="80%" width="80%" alt=""/>
 
-- Once the VM is created, navigate to Virtual Machines and select Client-1.
-- Under Settings, click Networking.
-- Select the NIC attached to Client-1 and go to DNS Servers.
-- Set the DNS server to Custom and input DC-1’s Private IP Address.
-- Save the changes.
+- Inside the _ADMINS OU:
+  - Right-click the OU and select New > User.
+  - Enter the following:
+    - First Name: Jane.
+    - Last Name: Doe.
+    - Username: jane_admin.
+- Set the password to Cyberlab123!.
+- Complete the wizard and create the user.
 
-<h3>Step 3: Restart Client-1</h3>
+<h3>Step 4: Add Jane Doe to the "Domain Admins" Group</h3>
 
-<img src="https://i.imgur.com/FRe2Vj0.png" height="80%" width="80%" alt=""/>
+<img src="https://i.imgur.com/CowJbIQ.png" height="80%" width="80%" alt=""/>
 
-- From the Azure Portal, select Client-1.
-- Click Restart to apply the DNS changes.
+- In ADUC, right-click on jane_admin and select Properties.
+- Go to the Member Of tab.
+- Click Add, search for Domain Admins, and add the user to the group.
+- Click OK to save.
 
-<h3>Step 4: Login to Client-1</h3>
+<h3>Step 5: Log In as Jane Admin</h3>
 
-<img src="https://i.imgur.com/cdemX9a.png" height="80%" width="80%" alt=""/>
+<img src="https://i.imgur.com/HUEcGSt.png" height="80%" width="80%" alt=""/>
 
-- Connect to Client-1 using RDP (same method as DC-1).
-- Login with:
-  - Username: labuser.
-  - Password: Cyberlab123!
+- Log out of DC-1 and log back in using the credentials:
+  - Username: mydomain.com\jane_admin.
+  - Password: Cyberlab123!.
+- From now on, use jane_admin as your admin account.
 
-<h3>Step 5: Test Connectivity</h3>
+<h3>Part III: Join Client-1 to the Domain</h3> 
+
+<h3>Step 1: Log Into Client-1</h3>
+
 <img src="https://i.imgur.com/4HdBb4U.png" height="80%" width="80%" alt=""/>
 
-- Open a Command Prompt or PowerShell on Client-1.
-- Run the following command:
-  - ping <DC-1 Private IP>
-- Ensure you see replies from DC-1's private IP.
+- Log into Client-1 using the local admin credentials:
+  - Username: labuser.
+  - Password: Cyberlab123!.
 
-<h3>Step 6: Verify DNS Settings</h3>
+<h3>Step 2: Join Client-1 to the Domain</h3>
+
 <img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
 
-- From Client-1, open PowerShell.
-- Run the following command:
-  - ipconfig /all
-- Verify that the DNS Server is set to DC-1’s private IP.
+- On Client-1, open Settings > System > About.
+- Click Join a domain under Device specifications.
+- Enter the domain name (e.g., mydomain.com) and click Next.
+- Provide the domain admin credentials:
+  - Username: mydomain.com\jane_admin.
+  - Password: Cyberlab123!.
+- Restart Client-1 when prompted.
+
+<h3>Step 3: Verify Client-1 in ADUC</h3>
+
+<img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
+
+- Log back into DC-1 as jane_admin.
+Open Active Directory Users and Computers (ADUC).
+Expand your domain and verify that Client-1 appears under the Computers container.
+
+<h3>Step 4: Move Client-1 to the _CLIENTS OU</h3>
+
+<img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
+
+- In ADUC, create a new OU named _CLIENTS:
+  - Right-click the domain name and select New > Organizational Unit.
+  - Name it _CLIENTS.
+- Drag and drop Client-1 from the Computers container into the _CLIENTS OU.
