@@ -131,7 +131,7 @@ On DC-1, open Active Directory Users and Computers from the Start menu.
 
 <h3>Step 2: Join Client-1 to the Domain</h3>
 
-<img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
+<img src="https://i.imgur.com/b7GT7t4.png" height="80%" width="80%" alt=""/>
 
 - On Client-1, open Settings > System > About.
 - Click Join a domain under Device specifications.
@@ -143,7 +143,7 @@ On DC-1, open Active Directory Users and Computers from the Start menu.
 
 <h3>Step 3: Verify Client-1 in ADUC</h3>
 
-<img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
+<img src="https://i.imgur.com/2Dal3Ka.png" height="80%" width="80%" alt=""/>
 
 - Log back into DC-1 as jane_admin.
 - Open Active Directory Users and Computers (ADUC).
@@ -151,7 +151,7 @@ On DC-1, open Active Directory Users and Computers from the Start menu.
 
 <h3>Step 4: Move Client-1 to the _CLIENTS OU</h3>
 
-<img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
+<img src="https://i.imgur.com/pDELfsE.png" height="80%" width="80%" alt=""/>
 
 - In ADUC, create a new OU named _CLIENTS:
   - Right-click the domain name and select New > Organizational Unit.
