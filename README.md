@@ -4,13 +4,15 @@
 
 <h1>Deploying Active Directory</h1>
 <p>
-his tutorial walks you through the process of setting up a Domain Controller (DC) and a Client in Microsoft Azure, showcasing how to configure network connections and test functionality in a controlled virtual environment. By deploying a Windows Server as a Domain Controller (DC-1) and a Windows 10 machine as a client (Client-1), we’ll explore how to configure private networks, assign static IPs, and test connectivity between virtual machines.
+This tutorial walks you through the process of setting up a Domain Controller (DC) and a Client in Microsoft Azure, showcasing how to configure network connections and test functionality in a controlled virtual environment. By deploying a Windows Server as a Domain Controller (DC-1) and a Windows 10 machine as a client (Client-1), we’ll explore how to configure private networks, assign static IPs, and test connectivity between virtual machines.
 
 Through this step-by-step guide, you’ll gain practical experience in:
 
 - Establishing a domain environment in Azure.
 - Configuring DNS settings and testing network connectivity.
 - Troubleshooting and ensuring seamless communication between virtual machines.
+
+Let's dive in. 
 
 <h2>Environments and Technologies Used</h2>
 
