@@ -146,8 +146,8 @@ On DC-1, open Active Directory Users and Computers from the Start menu.
 <img src="https://i.imgur.com/ROvkxrC.png" height="80%" width="80%" alt=""/>
 
 - Log back into DC-1 as jane_admin.
-Open Active Directory Users and Computers (ADUC).
-Expand your domain and verify that Client-1 appears under the Computers container.
+- Open Active Directory Users and Computers (ADUC).
+- Expand your domain and verify that Client-1 appears under the Computers container.
 
 <h3>Step 4: Move Client-1 to the _CLIENTS OU</h3>
 
